@@ -45,4 +45,54 @@ git config −−global credential.helper 'cache −−timeout=3600'
 ```
 
 ## Qual a diferença entre Merge e Rebase? 
+O merge pegar criar duas branchs distintas e irá escrever a história unindo dois pontos distintos da história. Ao passo que o Rebase irá rescrever a história de commits fazendo com que toda a história fique em apenas uma linha e não apresentará mais as duas histórias paralelas que haviam.
+- Estado inicial
+```bash
+[TOP: Antigo]
+      |
+     (A)
+      |
+     (B)-----------.
+      |            |
+     (C) <[main]  (D)
+                   |
+                  (E) <[feature]
+[BOTTOM: Novo]
 
+```
+
+- Exemplo de Merge 
+``` bash
+[TOP]
+      |
+     (A)
+      |
+     (B)-----------.
+      |            |
+     (C)          (D)
+      |            |
+      |           (E)
+      |           /
+     (M) <-------'  <-- [Merge Commit: Une as duas pontas]
+      |
+    [main]
+[BOTTOM]
+```
+
+- Exemplo de Rebase
+``` bash 
+[TOP]
+      |
+     (A)
+      |
+     (B)
+      |
+     (C)  <-- [O main termina aqui]
+      |
+     (D') <-- [Seu commit D é reescrito aqui]
+      |
+     (E') <-- [Seu commit E é reescrito aqui]
+      |
+   [feature]
+[BOTTOM]
+```
