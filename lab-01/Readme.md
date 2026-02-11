@@ -33,7 +33,16 @@ O GitHub não aceita autenticações com o método de senha simples, portanto, v
 - Logo acima terá a opção de gerar um novo token (Generate New Token) 
 - Se caso já existir um token e apenas quer acessá-lo, você deve selecionar o token e solicitar a regeneração do token
 
-### Salvar em cache as credenciais do PAT 
+### Salvar em cache as credenciais do PAT
+Para não precisar colocar as credenciais novamente a cada vez que encaminhar as alterações locais para o GitHub, podemos deixar nossas credenciais salvas em cache. 
+- Nesse exemplo o git irá lembrar da sua credencial por 15 minutos 
+ ``` bash 
+git config −−global credential.helper cache
+```
+- Já nesse caso, podemos colocar um tempo específico para a memória da credencial. No exemplo colocamos um timeout de 3600 segundos, ou seja, 1 hora 
+ ``` bash 
+git config −−global credential.helper 'cache −−timeout=3600'
+```
 
 ## Qual a diferença entre Merge e Rebase? 
 
