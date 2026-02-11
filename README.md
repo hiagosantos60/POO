@@ -1,2 +1,1 @@
-# POO
-Repositório voltado para as aulas de POO do IFSC
+# Atividades práticas da disciplina de Programação Orientada a Objetos. 
