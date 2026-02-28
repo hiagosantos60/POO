@@ -36,7 +36,13 @@ void main() {
             matriz[i][j] = valor;
 
             if (i == j) {
+                int k = i;
+                while (k > 0) {
+                    IO.print("-");
+                    k--;
+                }
                 IO.print(matriz[i][j]);
+                IO.print("\n");
             }
 
             valor++;

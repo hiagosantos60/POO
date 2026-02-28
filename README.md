@@ -5,7 +5,7 @@
 > Repositório com as atividades práticas de Programação Orientada a Objetos
 
 ## Laboratórios
-- [Laboratório 1](lab-01) - Sistema de Controle de Versão 
+- [Laboratório 1](lab01) - Sistema de Controle de Versão 
 
 ## Aulas
-- [Aula 1](aula-01)
+- [Aula 1](aula01)
