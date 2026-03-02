@@ -12,11 +12,18 @@ void main() {
     //         break;
     //     case 3:
     //         IO.println("3");
-    //         break;
-    //     default:
-    //         resultado = "Outro valor...";
+    //         besultado = "Outro valor...";
     // }
 
+
+    // String resultado_dois = switch(i) {
+    //     case 1 -> "Um";
+    //     case 2 -> "Dois";
+    //     case 3 -> "Três";
+    //     default -> "Outro valor";
+    // }
+
+    // IO.println(resultado);
 
     // String resultado_dois = switch(i) {
     //     case 1 -> "Um";
