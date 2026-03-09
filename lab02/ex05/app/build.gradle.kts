@@ -37,6 +37,10 @@ application {
     mainClass = "engtelecom.poo.App"
 }
 
+tasks.run.configure {
+    standardInput = System.`in`
+}
+
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
