@@ -56,13 +56,9 @@ public class App {
 
             for (int i = alt; i >= 0; i--) {
                 if (i == 0 || i == altura) {
-                    IO.print("*".repeat(tam));
-                    IO.println();
+                    IO.println("*".repeat(tam));
                 } else {
-                    IO.print("*");
-                    IO.print(" ".repeat(tam-2));
-                    IO.print("*");
-                    IO.println();
+                    IO.println("*" + " ".repeat(tam-2) + "*");
                 }
             }
         }

@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) {
         Random r = new Random(); 
 
-        String[][] matriz = new String[10][10]; 
+        String[][] matriz = new String[9][9]; 
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -15,12 +15,13 @@ public class App {
         }
 
         int c = 0;
-        while (c <= 10) {
-            int x = r.nextInt(10); 
-            int y = r.nextInt(10);
-            //char carac = matriz[x][y].charAt(0);
-            matriz[x][y] = "*";
-            c++;
+        while (c < 10) {
+            int x = r.nextInt(9); 
+            int y = r.nextInt(9);
+            if (matriz[x][y].equals(".")) {
+                matriz[x][y] = "*";
+                c++;
+            }
         }
 
         for (int i = 0; i < 9; i++) {

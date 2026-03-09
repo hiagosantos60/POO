@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Random num = new Random();
-        int i = num.nextInt(100); // número aleatório de 0 a 99
+        int i = num.nextInt(100) + 1; // número aleatório de 1 a 100
 
         int chute = 0;
 
