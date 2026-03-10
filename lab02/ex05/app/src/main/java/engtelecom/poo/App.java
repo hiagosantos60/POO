@@ -1,4 +1,3 @@
-
 package engtelecom.poo;
 
 import java.util.Scanner;
@@ -20,22 +19,40 @@ public class App {
             t++;
         }
 
-
-        System.out.println("Campo minado:");
-
         for (int y = 0; y < campo.length; y++) {
             for (int x = 0; x < campo.length; x++) { 
                 if (campo[x][y] == 9) { // se for asteristico 
                     // fazer validação da posição a ser analisada, nao pode estourar limite
-                    // variáveis auxiliares para validação do campo sem alterar a posição inicial
-                    int k = x;
-                    int j = y;
-
-                
+                   if (campo[x][y] == 9) { // caso for bomba
+                        // a logica aqui é ir do anterior do elemento até o proximo dele 
+                        for (int i = x - 1; i <= x + 1; i++) {
+                            for (int j = y - 1; j <= y + 1; j++) {
+                                
+                                if (i >= 0 && i < 9 && j >= 0 && j < 9) { // garantir que estou dentro do array
+       
+                                    if (campo[i][j] != 9) { // se for * não mexe
+                                        campo[i][j]++;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
 
+        System.out.println("Campo minado:");
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                if (campo[y][x] == 9) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(campo[y][x]);
+                }
+            }
+            System.out.println();
+        }
+        
         scan.close();
     }
 }
