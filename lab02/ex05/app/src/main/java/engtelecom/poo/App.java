@@ -23,16 +23,13 @@ public class App {
             for (int x = 0; x < campo.length; x++) { 
                 if (campo[x][y] == 9) { // se for asteristico 
                     // fazer validação da posição a ser analisada, nao pode estourar limite
-                   if (campo[x][y] == 9) { // caso for bomba
-                        // a logica aqui é ir do anterior do elemento até o proximo dele 
-                        for (int i = x - 1; i <= x + 1; i++) {
-                            for (int j = y - 1; j <= y + 1; j++) {
-                                
-                                if (i >= 0 && i < 9 && j >= 0 && j < 9) { // garantir que estou dentro do array
-       
-                                    if (campo[i][j] != 9) { // se for * não mexe
-                                        campo[i][j]++;
-                                    }
+                   for (int i = x - 1; i <= x + 1; i++) {
+                        for (int j = y - 1; j <= y + 1; j++) {
+                            
+                            if (i >= 0 && i < 9 && j >= 0 && j < 9) { // garantir que estou dentro do array
+    
+                                if (campo[i][j] != 9) { // se for * não mexe
+                                    campo[i][j]++;
                                 }
                             }
                         }
