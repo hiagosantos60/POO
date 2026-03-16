@@ -13,3 +13,4 @@
 - [Aula 4](aula4) - Introdução ao java
 - [Aula 5](aula5) - Criação de projetos com Gradle
 - [Aula 6](aula6) - Criação de projetos com Gradle
+- [Aula 8](aula8) - Iniciando Orientação a Objetos
