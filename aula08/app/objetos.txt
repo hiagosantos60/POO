@@ -27,3 +27,20 @@ Atributos:
 Métodos:
 - Ligar :
 - Desligar : 
+
+=============================================================================================================================================
+
+Sistema para revenda de carros:
+Para o carro:
+# ATRIBUTOS
+- Cor
+- Fabricante
+- Modelo
+- Ano
+- Preço
+
+Jogo de fórmula 1:
+# ATRIBUTOS
+- Time
+- Posição
+- Velocidade

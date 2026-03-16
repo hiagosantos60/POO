@@ -2,17 +2,13 @@ package engtelecom.poo;
 
 public class App {
     public static void main(String[] args) {
-        Lampada a = new Lampada();
-        Lampada b = new Lampada();
+        Caneta c = new Caneta();
 
-        // System.out.println(a.isLigada());
-        // a.ligar();
-        // System.out.println(a.isLigada());
-        // System.out.println(b.isLigada());
-         
-        a.LigaDesliga();
-        System.out.println(a.isLigada());
-        a.LigaDesliga();
-        System.out.println(a.isLigada());
+        c.setColor("Preto");
+        c.setNivel();
+        
+        c.setTampada();
+
+        IO.println(c.draw(1,1,2,1));
     }
 }
