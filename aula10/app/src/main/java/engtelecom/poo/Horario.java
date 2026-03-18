@@ -1,4 +1,4 @@
-package engtelecom;
+package engtelecom.poo;
 
 public class Horario {
     private int hora;
