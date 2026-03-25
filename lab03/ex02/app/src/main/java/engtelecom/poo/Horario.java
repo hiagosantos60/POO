@@ -12,30 +12,28 @@ public class Horario {
     private static final int MAX_SEG = 59;
     private static final int MIN_SEG = 0;
 
-    // construtor padrão
-    public Horario() {
-        this.horas = 0;
-        this.minutos = 0;
-        this.segundos = 0;
-    }
-
-    // construtores com paramentros
     public Horario(int horas, int minutos, int segundos) {
-        setHoras(horas);
-        setMinutos(minutos);
-        setSegundos(segundos);
+        // caso algum valor seja inválido, coloque tudo zero
+        if (horas > MAX_HORA || horas < MIN_MIN ||
+            minutos > MAX_MIN || minutos < MIN_MIN ||
+            segundos > MAX_SEG || segundos < MIN_SEG
+        ) {
+            this.horas = 0;
+            this.minutos = 0;
+            this.segundos = 0;
+        } else {
+            this.horas = horas;
+            this.minutos = minutos;
+            this.segundos = segundos;
+        }
     }
 
     public Horario(int horas, int minutos) {
-        setHoras(horas);
-        setMinutos(minutos);
-        setSegundos(0);
+        this(horas , minutos,0);
     }
 
     public Horario(int horas) {
-        setHoras(horas);
-        setMinutos(0);
-        setSegundos(0);
+        this(horas, 0 ,0);
     }
 
     public Boolean setHoras(int horas) {
@@ -123,12 +121,17 @@ public class Horario {
         int segundosDezena = (this.segundos / 10) * 10;
         int segundosUnidade = (this.segundos % 10);
 
-        String h = (this.horas == 1) ? "uma" : (this.horas == 2) ? "duas" : converteParaExtenso(horaDezena) + " " + converteParaExtenso(horaUnidade);
 
-        String m = converteParaExtenso(minutoDezena) + " " + converteParaExtenso(minutoUnidae);
 
-        String s = converteParaExtenso(segundosDezena) + " " + converteParaExtenso(segundosUnidade);
+        String h = (this.horas == 1) ? "uma hora" : (this.horas == 2) ? "duas" : (this.horas < 20) ?
+         converteParaExtenso(this.horas) + " horas " : converteParaExtenso(horaDezena) + " e " + converteParaExtenso(horaUnidade) + " horas "; 
 
-        return h + " " + "horas" + " " + m + " " + "minutos" + " " + s + "segundos";
+        String m = (this.minutos == 1 ) ? "um minuto " : (this.minutos < 20) ? converteParaExtenso(this.minutos) + " minutos " : 
+         converteParaExtenso(minutoDezena) + " e " + converteParaExtenso(minutoUnidae) + " minutos ";
+
+        String s = (this.segundos == 1 ) ? "e um segundo" : (this.segundos < 20) ? converteParaExtenso(this.segundos) + " segundos " :
+         converteParaExtenso(segundosDezena) + " e " + converteParaExtenso(segundosUnidade) + " segundos ";
+
+        return h+m+"e "+s;
     }
 }
