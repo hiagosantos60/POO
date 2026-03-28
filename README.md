@@ -6,7 +6,8 @@
 
 ## Laboratórios
 - [Laboratório 1](lab01) - Sistema de Controle de Versão 
-- [Laboratório 2](lab02) - Exercícios de introdução ao Java 
+- [Laboratório 2](lab02) - Exercícios de introdução ao Java
+- [Laboratório 3](lab02) - Exercícios de introdução a Classes
 
 ## Aulas
 - [Aula 1](aula01) - Introdução ao Git
@@ -14,3 +15,4 @@
 - [Aula 5](aula5) - Criação de projetos com Gradle
 - [Aula 6](aula6) - Criação de projetos com Gradle
 - [Aula 8](aula8) - Iniciando Orientação a Objetos
+- [Aula 10](aula10) - Introdução a Classes 
