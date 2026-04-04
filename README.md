@@ -16,3 +16,4 @@
 - [Aula 6](aula6) - Criação de projetos com Gradle
 - [Aula 8](aula8) - Iniciando Orientação a Objetos
 - [Aula 10](aula10) - Introdução a Classes 
+- [Aula 12](aula12) - Introdução a Listas, conjuntos e mapas
