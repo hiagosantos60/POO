@@ -1,5 +1,7 @@
 package engtelecom.poo;
 
+// implementação simples de conta com array list
+
 import java.util.ArrayList;
 
 public class App {
@@ -28,8 +30,36 @@ public class App {
                 contas.forEach(IO::println);
                 break;
             case 3:
+                long c = Long.parseLong(IO.readln("Qual o número da conta: "));
+                double v = Double.parseDouble(IO.readln("Quanto deseja sacar: "));
+
+                // contas.forEach(e -> {
+                //     if(e.getNumConta() == c) {
+                //         e.sacar(v);
+                //     } else {
+                //         System.out.println("Conta não encontrada...");
+                //     }
+                // });
+
+                for (Conta e : this.contas) {
+                    if(e.getNumConta() == c){
+                        e.sacar(v);
+                        break;
+                    }
+                }
+                
                 break;
             case 4:
+                c = Long.parseLong(IO.readln("Qual o número da conta: "));
+                v = Double.parseDouble(IO.readln("Quanto deseja depositar: "));
+                contas.forEach(e -> {
+                    if(e.getNumConta() == c){
+                        e.depositar(v);
+                    } else {
+                        System.out.println("Conta não encontrada...");
+                    }
+                });
+
                 break;
             default:
                 System.out.println("Opção inválida!");

@@ -33,6 +33,10 @@ public class Conta {
         return saldo;
     }
 
+    public long getNumConta() {
+        return numConta;
+    }
+
     @Override
     public String toString() {
         return "Titular: " + titular + "\nNum Conta: " + numConta + "\nSaldo: " + saldo;
