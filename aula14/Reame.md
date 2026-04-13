@@ -1,5 +1,5 @@
 # Diagrama de classes UML
-
+- Exemplo de uma classe
 ``` mermaid 
 classDiagram 
     direction LR
@@ -12,7 +12,13 @@ classDiagram
     }
 ```
 
+# Carros
+- Exemplo 2
 ``` mermaid
+---
+config:
+    rankSpacing : 100
+---
 classDiagram
     direction LR
 
@@ -40,6 +46,33 @@ classDiagram
 
     Carro"1" o-- "1"Motor  
     Carro"1" o-- "3..4"Roda
+```
 
 
+# Livros
+- Exemplo 3
+``` mermaid
+---
+config:
+    rankSpacing : 100
+---
+classDiagram
+    direction LR
+
+    class Livro {
+        - titulo : String
+        - autor : Pessoa
+        - capitulos : Arraylist<Capitulos>
+        + Livro(t: String, a:Pessoa)
+        + adicionarCapitulo(t: String) void
+        + imprimir() void
+    }
+
+    class Capitulo {
+        - titulo : String
+        + Capitulo(t: String)
+    }
+
+    
+    Livro"1" o-- "1.."Capitulo
 ```
