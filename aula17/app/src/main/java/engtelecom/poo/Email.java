@@ -1,13 +1,10 @@
 package engtelecom.poo;
 
 public class Email {
-    private static int cont = 0;
     private String rotulo;
     private String valor;
-    private int id;
 
     public Email(String rotulo, String valor) {
-        this.id = ++cont;
         this.rotulo = rotulo;
         this.valor = valor;
     }
@@ -17,9 +14,6 @@ public class Email {
     }
     public String getValor() {
         return valor;
-    }
-    public int getId() {
-        return id;
     }
 
     public void setRotulo(String rotulo) {

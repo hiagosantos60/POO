@@ -42,17 +42,16 @@ public class Contato {
         return emails.removeIf(e -> e.getRotulo().equals(rotulo) && e.getValor().equals(valor));
     }
 
-    public boolean updateEmail(String rotulo, String valor, int id) {
-        if (validarEmail(valor)) {
-            for (Email e : emails) {
-                if (e.getId() == id) {
-                    e.setRotulo(rotulo);
-                    e.setValor(valor);
-                    return true;
-                } 
-            }
-        } 
-        return false;
+    public boolean updateEmail(int indiceEmail, String rotulo, String valor) {
+        if (indiceEmail < 0 || indiceEmail >= emails.size()) return false;
+
+        if (!validarEmail(valor)) return false;
+
+        Email e = emails.get(indiceEmail);
+        e.setRotulo(rotulo);
+        e.setValor(valor);
+
+        return true;
     }
 
     public boolean addTelefone (String rotulo, String valor) {
@@ -68,19 +67,17 @@ public class Contato {
         return telefones.removeIf(t -> t.getRotulo().equals(rotulo) && t.getValor().equals(valor));
     }
 
-    public boolean updateTelefone (String rotulo, String valor, int id) {
-        if(validarTelefone(valor)) {
-            for (Telefone t : telefones) {
-                if(t.getId() == id) {
-                    t.setRotulo(rotulo);
-                    t.setValor(valor);
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    public boolean updateTelefone(int indiceTelefone, String rotulo, String valor) {
+        if (indiceTelefone < 0 || indiceTelefone >= telefones.size()) return false;
 
+        if (!validarTelefone(valor)) return false;
+
+        Telefone t = telefones.get(indiceTelefone);
+        t.setRotulo(rotulo);
+        t.setValor(valor);
+
+        return true;
+    }
 
     @Override
     public String toString() {
@@ -100,5 +97,16 @@ public class Contato {
         }
 
         return sb.toString();
-        }
     }
+
+    public String getNome() {
+        return nome;
+    }
+    public String getSobrenome() {
+        return sobrenome;
+    }
+    public LocalDate getDataNasc() {
+        return dataNasc;
+    }
+
+}

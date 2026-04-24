@@ -13,18 +13,17 @@ classDiagram
     class AgendaTelefonica{
         - contatos: ArrayList~Contato~
         
-        + AgendaTelefonica()
         + findContato(String nome, String sobrenome, LocalDate dataNasc) Contato
         + addContato(Contato c) boolean
         + removeContato(Contato c) boolean
 
-        + addEmail(String rotulo, String valor, int indiceContatoNaLista) boolean
-        + removeEmail(String rotulo, String valor, int indiceContatoNaLista) boolean
-        + updateEmail(String rotulo, String valor, int indiceContatoNaLista) boolean
+        + addEmail(String rotulo, String valor, int indiceContato) boolean
+        + removeEmail(String rotulo, String valor, int indiceContato) boolean
+        + updateEmail(String rotulo, String valor, int indiceContato) boolean
         
-        + addTelefone(String rotulo, String valor, int indiceContatoNaLista) boolean
-        + removeTelefone(String rotulo, String valor, int indiceContatoNaLista) boolean
-        + updateTelefone(String rotulo, String valor, int indicindiceContatoNaLista) boolean
+        + addTelefone(String rotulo, String valor, int indiceContato) boolean
+        + removeTelefone(String rotulo, String valor, int indiceContato) boolean
+        + updateTelefone(String rotulo, String valor, int indiceContato) boolean
     }
     
     class Contato {
@@ -36,17 +35,17 @@ classDiagram
         - id : int
 
         + Contato(String nome, String sobrenome, LocalDate dataNasc)
+
+        + validarEmail(String valor) boolean
+        + validarTelefone(String valor) boolean
         
         + addEmail(String rotulo, String valor) boolean
         + removeEmail(String rotulo, String valor) boolean
-        + updateEmail(String rotulo, String valor) boolean
+        + updateEmail(String rotulo, String valor, int id) boolean
         
         + addTelefone(String rotulo, String valor) boolean
         + removeTelefone(String rotulo, String valor) boolean
-        + updateTelefone(String rotulo, String valor) boolean
-        
-        + validarEmail(String valor) boolean
-        + validarTelefone(String valor) boolean
+        + updateTelefone(String rotulo, String valor) boolean        
 
         + toString() String
     }
@@ -54,6 +53,7 @@ classDiagram
     class Telefone {
         - valor: String
         - rotulo : String
+        - id : int
         + Telefone (String rotulo, String valor)
         + toString() String
     }
@@ -61,6 +61,7 @@ classDiagram
     class Email{
         - rotulo: String
         - valor: String
+        - id : int
         + Email(String rotulo, String valor)
         + toString() String 
     } 
