@@ -4,12 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Contato {
-    ArrayList<Email> emails = new ArrayList<>();
-    ArrayList<Telefone> telefones = new ArrayList<>();
+    private ArrayList<Email> emails = new ArrayList<>();
+    private ArrayList<Telefone> telefones = new ArrayList<>();
     private String nome;
     private String sobrenome;
     private LocalDate dataNasc;
-    
+
     public Contato(String nome, String sobrenome, LocalDate dataNasc) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -27,24 +27,21 @@ public class Contato {
     }
 
     public boolean addEmail(String rotulo, String valor) {
-        boolean valido = validarEmail(valor);
+        if (!validarEmail(valor)) return false;
 
-        if(valido){
-            Email e = new Email(rotulo, valor);
-            emails.add(e);
-            return true;
-        } else {
-            return false;
-        }
+        emails.add(new Email(rotulo, valor));
+        return true;
     }
 
-    public boolean removeEmail(String rotulo, String valor){
-        return emails.removeIf(e -> e.getRotulo().equals(rotulo) && e.getValor().equals(valor));
+    public boolean removeEmail(int indiceEmail) {
+        if (indiceEmail < 0 || indiceEmail >= emails.size()) return false;
+
+        emails.remove(indiceEmail);
+        return true;
     }
 
     public boolean updateEmail(int indiceEmail, String rotulo, String valor) {
         if (indiceEmail < 0 || indiceEmail >= emails.size()) return false;
-
         if (!validarEmail(valor)) return false;
 
         Email e = emails.get(indiceEmail);
@@ -54,22 +51,22 @@ public class Contato {
         return true;
     }
 
-    public boolean addTelefone (String rotulo, String valor) {
-        if(validarTelefone(valor)) {
-            Telefone t = new Telefone(rotulo, valor);
-            telefones.add(t);
-            return true;
-        }
-        return false;
-    }    
+    public boolean addTelefone(String rotulo, String valor) {
+        if (!validarTelefone(valor)) return false;
 
-    public boolean removeTelefone (String rotulo, String valor) {
-        return telefones.removeIf(t -> t.getRotulo().equals(rotulo) && t.getValor().equals(valor));
+        telefones.add(new Telefone(rotulo, valor));
+        return true;
+    }
+
+    public boolean removeTelefone(int indiceTelefone) {
+        if (indiceTelefone < 0 || indiceTelefone >= telefones.size()) return false;
+
+        telefones.remove(indiceTelefone);
+        return true;
     }
 
     public boolean updateTelefone(int indiceTelefone, String rotulo, String valor) {
         if (indiceTelefone < 0 || indiceTelefone >= telefones.size()) return false;
-
         if (!validarTelefone(valor)) return false;
 
         Telefone t = telefones.get(indiceTelefone);
@@ -77,6 +74,26 @@ public class Contato {
         t.setValor(valor);
 
         return true;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public LocalDate getDataNasc() {
+        return dataNasc;
+    }
+
+    public ArrayList<Email> getEmails() {
+        return emails;
+    }
+
+    public ArrayList<Telefone> getTelefones() {
+        return telefones;
     }
 
     @Override
@@ -87,26 +104,27 @@ public class Contato {
         sb.append("Data de Nascimento: ").append(dataNasc).append("\n");
 
         sb.append("Emails:\n");
-        for (Email e : emails) {
-            sb.append(" - ").append(e.toString()).append("\n");
+        for (int i = 0; i < emails.size(); i++) {
+            sb.append(" [")
+            .append(i)
+            .append("] ")
+            .append(emails.get(i).getRotulo())
+            .append(": ")
+            .append(emails.get(i).getValor())
+            .append("\n");
         }
 
         sb.append("Telefones:\n");
-        for (Telefone t : telefones) {
-            sb.append(" - ").append(t.toString()).append("\n");
+        for (int i = 0; i < telefones.size(); i++) {
+            sb.append(" [")
+            .append(i)
+            .append("] ")
+            .append(telefones.get(i).getRotulo())
+            .append(": ")
+            .append(telefones.get(i).getValor())
+            .append("\n");
         }
 
         return sb.toString();
     }
-
-    public String getNome() {
-        return nome;
-    }
-    public String getSobrenome() {
-        return sobrenome;
-    }
-    public LocalDate getDataNasc() {
-        return dataNasc;
-    }
-
 }

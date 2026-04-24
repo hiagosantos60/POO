@@ -12,6 +12,7 @@ public class Email {
     public String getRotulo() {
         return rotulo;
     }
+
     public String getValor() {
         return valor;
     }
@@ -19,12 +20,13 @@ public class Email {
     public void setRotulo(String rotulo) {
         this.rotulo = rotulo;
     }
+
     public void setValor(String valor) {
         this.valor = valor;
     }
 
     @Override
     public String toString() {
-        return "Email [rotulo=" + rotulo + ", valor=" + valor + "]";
+        return rotulo + ": " + valor;
     }
 }
