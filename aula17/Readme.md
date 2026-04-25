@@ -12,7 +12,8 @@ classDiagram
 
     class AgendaTelefonica {
         - contatos: ArrayList~Contato~
-
+	
+	    + isValido(int indice) boolean
         + findContato(String nome, String sobrenome, LocalDate dataNasc) Contato
         + addContato(Contato c) boolean
         + removeContato(int indiceContato) boolean
@@ -47,10 +48,6 @@ classDiagram
         + addTelefone(String rotulo, String valor) boolean
         + removeTelefone(int indiceTelefone) boolean
         + updateTelefone(int indiceTelefone, String rotulo, String valor) boolean
-
-        + getNome() String
-        + getSobrenome() String
-        + getDataNasc() LocalDate
 
         + toString() String
     }
