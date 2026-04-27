@@ -8,6 +8,7 @@
 - [Laboratório 1](lab01) - Sistema de Controle de Versão 
 - [Laboratório 2](lab02) - Exercícios de introdução ao Java
 - [Laboratório 3](lab02) - Exercícios de introdução a Classes
+- [Laboratório 4](lab04) - Agenda telefônica
 
 ## Aulas
 - [Aula 1](aula01) - Introdução ao Git
@@ -18,3 +19,4 @@
 - [Aula 10](aula10) - Introdução a Classes 
 - [Aula 12](aula12) - Introdução a Listas, conjuntos e mapas
 - [Aula 13](aula13) - Exercício com HashMaps e Array List
+- [Aula 16](aula16) - Associação entre classes
