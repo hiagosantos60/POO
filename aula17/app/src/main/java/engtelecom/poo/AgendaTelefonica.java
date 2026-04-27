@@ -9,7 +9,7 @@ public class AgendaTelefonica {
 
     public Contato findContato(String nome, String sobrenome, LocalDate dataNasc) {
         for (Contato c : contatos) {
-            if (c.getNome().equals(nome) && c.getSobrenome().equals(sobrenome) && c.getDataNasc().equals(dataNasc)) {
+            if (c.getNome().equalsIgnoreCase(nome) && c.getSobrenome().equalsIgnoreCase(sobrenome) && c.getDataNasc().equals(dataNasc)) {
                 return c;
             }
         }
