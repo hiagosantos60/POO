@@ -10,21 +10,22 @@ classDiagram
     Filme "1" o-- "1" Diretor
     Filme "1" o-- "1..*" Ator
     Filme "1" *-- "0..*" Avaliacao
-    Usuario "1" --o "1..*" Avaliacao
+    Usuario "1" --o "0..*" Avaliacao
 
 
     class Filme {
         - idFilme: int
         - titulo: String
-        - anoDeLancamento: LocalDate
+        - anoDeLancamento: int
         - genero: String
-        - diretores: Diretor
+        - diretor: Diretor
         - atores: ArrayList~Ator~
-        - avaliacoes: ArraList~Avaliacao~
+        - avaliacoes: ArrayList~Avaliacao~
 
-        + Filme(titulo: String, anoDeLancamento: LocalDate, genero: String, diretor: Diretor)
+        + Filme(titulo: String, anoDeLancamento: int, genero: String, diretor: Diretor)
 
         + addAvalicao(avaliacao: Avaliacao) boolean
+        + getMediaAvaliacoes() double
     }
 
     class Diretor {
@@ -41,11 +42,13 @@ classDiagram
         - nome: String
         - email: String
         - senha: String 
+        + avaliarFilme(filme: Filme, nota: int, comentario: String) boolean
     }
 
     class Avaliacao {
         - idAvalicao: int
         - usuario: Usuario
+        - filme: Filme
         - nota: int
         - comentario: String
     }
