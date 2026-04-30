@@ -5,26 +5,32 @@
 classDiagram
 
     class Voo {
-        - nDeVoo: int
+        - numeroDoVoo: int
         - destino: String
         - data: LocalDate
         - horaDePartida: LocalDate
         - capMaxima: int
+        - reservas: ArrayList~Reserva~
+        + addReserva(reserva: Reserva) boolean
     }
 
     class Passageiro {
         - nome: String
         - email: String
         - numeroDeTelefone: String
+        - reservas: ArrayList~Reserva~
+        + addReserva(reserva: Reserva) boolean
     }
 
     class Reserva {
-        - String codigoReserva
-        - int numeroAssento
-        - LocalDateTime dataCriacao
+        - codigoReserva: String
+        - numeroAssento: int
+        - dataCriacao: LocalDateTime
+        - passageiro: Passageiro
+        - voo: Voo
     }
 
-    Reserva "0..*" --o "1" Voo 
-    Reserva "0..*" --o "1" Passageiro
+    Reserva "0..*" o-- "1" Voo 
+    Reserva "0..*" o-- "1" Passageiro
 
 ``` 
