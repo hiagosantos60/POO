@@ -13,10 +13,15 @@ classDiagram
         - modelo: String
         - placa: String
         - anoDeFabricacao: String
+        + Veiculo(modelo: String, placa: String, anoDeFabricacao: String)
     }
 
     class Motorista {
         - nome: String
+        - dataNasc: Localdate
+        - categoriaCnh: String
+        + Motorista(nome: String, dataNasc: Localdate, categoriaCnh: String)
+        + mudarCategoria(novaCategoria: String) boolean
     }
 
     class Registro{
@@ -24,7 +29,7 @@ classDiagram
         - motorista: Motorista
         - data: LocalDate
         - distancia: double
-        + Registro()
+        + Registro(veiculo: Veiculo, motorista: Motorista, data: LocalDate, distancia: double)
     }
 
 ```
