@@ -25,6 +25,7 @@ classDiagram
         + Filme(titulo: String, anoDeLancamento: int, genero: String, diretor: Diretor)
 
         + addAvalicao(avaliacao: Avaliacao) boolean
+        + addAtor(ator: Ator) boolean
         + getMediaAvaliacoes() double
     }
 
@@ -41,6 +42,7 @@ classDiagram
     class Usuario {
         - nome: String
         - email: String
+        - cpf: String
         - senha: String 
         + avaliarFilme(filme: Filme, nota: int, comentario: String) boolean
     }

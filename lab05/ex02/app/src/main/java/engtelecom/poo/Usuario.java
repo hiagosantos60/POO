@@ -3,11 +3,13 @@ package engtelecom.poo;
 public class Usuario {
     private String nome;
     private String email;
+    private String cpf;
     private String senha;
 
-    public Usuario(String nome, String email, String senha) {
+    public Usuario(String nome, String email, String senha, String cpf) {
         this.nome = nome;
         this.email = email;
+        this.cpf = cpf;
         this.senha = senha;
     }
 
@@ -19,10 +21,13 @@ public class Usuario {
         return email;
     }
 
+    public String getCpf(){
+        return cpf;
+    }
+
     public boolean avaliarFilme(Filme filme, int nota, String comentario) {
-        if(nota > 5 || nota < 0) return false;
-        return false;
-        // implementar depois de implementar Filme   
+        Avaliacao nova = new Avaliacao(this, filme, nota, comentario);
+        return filme.addAvaliacao(nova);
     }
 
     @Override
@@ -31,7 +36,8 @@ public class Usuario {
                 INFORMAÇÕES DO USUÁRIO
                 Nome: %s
                 Email: %s
-                """.formatted(nome, email);
+                CPF: %d
+                """.formatted(nome, email,cpf);
     }
     
 }
