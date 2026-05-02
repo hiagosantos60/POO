@@ -5,31 +5,46 @@
 
 classDiagram
     direction LR
-
-    Registro "1..*" o-- "1" Veiculo
     Registro "1..*" o-- "1" Motorista
+    Empresa "1..*" *-- "0..*" Registro
+    Empresa "1..*" *-- "0..*" Motorista
+    Empresa "1..*" *-- "0..*" Veiculo
+    Registro "1..*" o-- "1" Veiculo
+    
 
     class Veiculo {
         - modelo: String
         - placa: String
-        - anoDeFabricacao: String
-        + Veiculo(modelo: String, placa: String, anoDeFabricacao: String)
+        - anoDeFabricacao: int
+        + Veiculo(modelo: String, placa: String, anoDeFabricacao: int)
     }
 
     class Motorista {
         - nome: String
         - dataNasc: Localdate
         - categoriaCnh: String
+        - cpf: int
         + Motorista(nome: String, dataNasc: Localdate, categoriaCnh: String)
         + mudarCategoria(novaCategoria: String) boolean
     }
 
-    class Registro{
+    class Registro {
         - veiculo: Veiculo
         - motorista: Motorista
         - data: LocalDate
         - distancia: double
         + Registro(veiculo: Veiculo, motorista: Motorista, data: LocalDate, distancia: double)
+    }
+
+    class Empresa {
+        - motoristas: HashMap~Motorista~
+        - veiculos: HashMap~Veiculo~
+        - registros: HashMap~Regitro~
+        - cnpj: int
+        + Empresa (cnpj: int)
+        + addMotorista(motorista: Motorista) boolean
+        + addVeiculo(veiculo: Veiculo) boolean
+        + addRegistro(registro: Registro) boolean
     }
 
 ```
