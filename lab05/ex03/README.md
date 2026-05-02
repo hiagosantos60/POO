@@ -39,7 +39,7 @@ classDiagram
     class Empresa {
         - motoristas: HashMap~Motorista~
         - veiculos: HashMap~Veiculo~
-        - registros: HashMap~Regitro~
+        - registros: ArrayList~Regitro~
         - cnpj: int
         + Empresa (cnpj: int)
         + addMotorista(motorista: Motorista) boolean

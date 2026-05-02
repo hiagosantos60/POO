@@ -6,6 +6,7 @@ public class Motorista {
     private String nome;
     private LocalDate dataNasc;
     private String categoriaCnh;
+    private int cpf;
     
     public Motorista(String nome, LocalDate dataNasc, String categoriaCnh) {
         this.nome = nome;
@@ -28,6 +29,10 @@ public class Motorista {
 
     public String getCategoriaCnh() {
         return categoriaCnh;
+    }
+
+    public int getCpf() {
+        return cpf;
     }
 
     @Override
