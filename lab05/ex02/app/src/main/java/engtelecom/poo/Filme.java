@@ -72,19 +72,17 @@ public class Filme {
 
     @Override
 public String toString() {
-    // 1. Criamos uma String simples com os nomes dos atores separados por vírgula
+
     String nomesAtores = "";
     for (int i = 0; i < atores.size(); i++) {
         nomesAtores += atores.get(i).getNome();
         if (i < atores.size() - 1) {
-            nomesAtores += ", "; // Adiciona vírgula apenas entre os nomes
+            nomesAtores += ", ";
         }
     }
 
-    // Se a lista estiver vazia, colocamos um aviso
     if (atores.isEmpty()) nomesAtores = "Nenhum ator cadastrado";
 
-    // 2. Agora o bloco de texto fica muito mais legível
     return """
     === INFORMACOES DO FILME ===
     [%d] %s (%d)
