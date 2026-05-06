@@ -9,6 +9,8 @@
 - [Laboratório 2](lab02) - Exercícios de introdução ao Java
 - [Laboratório 3](lab02) - Exercícios de introdução a Classes
 - [Laboratório 4](lab04) - Agenda telefônica
+- [Laboratório 5](lab05) - Modelagem de classes e implementação
+- [Laboratório 6](lab06) - Relógio digital
 
 ## Aulas
 - [Aula 1](aula01) - Introdução ao Git
@@ -20,3 +22,4 @@
 - [Aula 12](aula12) - Introdução a Listas, conjuntos e mapas
 - [Aula 13](aula13) - Exercício com HashMaps e Array List
 - [Aula 16](aula16) - Associação entre classes
+- [Aula 18](aula18) - Desenhos e interface gráfica
