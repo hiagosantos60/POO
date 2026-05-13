@@ -1,5 +1,5 @@
 # Herança
-> Permite criar classes a partir de classes já existentes
+> Permite criar classes a partir de classes já existentes e todos os atributos e métodos serão preservados
 - Use herança quando diferentes classes compartilham caracterísiticas e comportamentos comuns, mas também possuem particularidades.
 - Tipos de dados protected podem ser acessados somente para classes no mesmo pacotes
 
@@ -89,19 +89,71 @@ classDiagram
         - CapacidadeDoLastro: int
     }
 
+    class Terrestre {
+        - qtdPassageiros: int
+    }
+
 ```
 
 ## Animais 
 ```mermaid
 classDiagram
-    Animal <|-- Herbivoro
-    Animal <|-- Carnivoro
-    Animal <|-- Onivoro
-    Onivoro <|-- Gato
-    Herbivoro <|-- Arara
-    Carnivoro <|-- Baleia
-    Onivoro <|-- Galinha
-    Carnivoro <|-- Tubarao 
-    Onivoro <|-- Cachorro
 
+    Animal <|-- Mamifero
+    Animal <|-- Ave
+    Animal <|-- Peixe
+    Mamifero <|-- Gato
+    Mamifero <|-- Cachorro
+    Mamifero <|-- Baleia
+    Ave <|-- Arara
+    Ave <|-- Galinha
+    Peixe <|-- Tubarao
+
+    class Animal {
+        - cor: String
+    }
+
+    class Mamifero {
+        - qtdMamas: String
+    }
+
+    class Ave {
+        - qtdAsas: int
+    }
+
+    class Peixe {
+        - qtdNadadeiras: int
+    }
+
+    class Ave {
+
+    }
+
+    class Peixe {
+
+    }
+
+    class Gato {
+
+    }
+
+    class Cachorro {
+
+    }
+
+    class Arara {
+
+    }
+
+    class Galinha {
+
+    }
+
+    class Baleia {
+
+    }
+
+    class Tubarao {
+
+    }
 ```

@@ -15,6 +15,8 @@ public class Telefone {
         this.dimensao = dimensao;
     }
 
+    
+
     @Override
     public String toString() {
         return "Telefone [codigo=" + codigo + ", numSerie=" + numSerie + ", modelo=" + modelo + ", peso=" + peso
