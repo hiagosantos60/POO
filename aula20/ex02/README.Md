@@ -1,8 +1,8 @@
 # Aplicativo para desenho vetorial 2D (geometria plana)
 - Modele classes para representar as seguintes formas geométricas 2D:
-- Linha
-- Círculo
-- Retângulo
+    - Linha
+    - Círculo
+    - Retângulo
 - Cada forma deve ter atributos que a caracterizam, como: cor da linha, cor de preenchimento, coordenadas, raio, etc
 - Cada forma deve ter um método desenhar, que retorna uma String com os valores dos atributos do objeto e uma mensagem indicando o tipo da forma
 - Formas geométricas que possuem área devem implementar também os métodos calcularArea e calcularPerimetro
@@ -11,28 +11,48 @@
 ## Diagrama UML
 ```mermaid
 classDiagram
-direction BT
+    direction TB
 
     class FormaGeometrica{
         - corDaLinha: String
-        - corDePreenchimento: String
-        - coordenadadaEmX: double
-        - coordenadaEmY: double
+        + desenhar() String
+    }
 
-        + Desenhar() String
-        + calcularArea() double
-        + calcularPerimetro() double
+    class FormaComArea {
+        - corArea: String
+        + calcularArea() String;
+        + calcularPerimetro() String;
+    }
+
+    class Ponto {
+        - xInicial: double
+        - yInicial: double
+        - xFinal: double
+        - yFinal: double
     }
 
     class Linha {
-
+        - pontoInicial: Ponto
+        - pontoFinal: Ponto
     }
 
     class Circulo {
-
+        - raio: double
+        - centro: Ponto
     }
 
     class Retangulo {
-
+        - verticeInicial: Ponto
+        - verticeFinal: Ponto
     }
+
+    FormaGeometrica <|-- FormaComArea
+    FormaGeometrica <|-- Linha
+
+    FormaComArea <|-- Circulo
+    FormaComArea <|-- Retangulo
+    Circulo *-- Ponto
+    Retangulo *-- Ponto
+    Linha *-- Ponto
+
 ```
