@@ -1,6 +1,6 @@
 package eng.telecom.personagens;
 
-public class Arqueiro extends Personagem {
+public class Arqueiro extends Personagem implements Guerreiro{
 
     private final static int VIDA = 35;
     private final static int ATAQUE = 2;
@@ -19,7 +19,4 @@ public class Arqueiro extends Personagem {
     public String atacar() {
         return String.format("Arqueiro: Estou atacando com meu arco! Força: %d", ataque);
     }
-    
-    
-
 }

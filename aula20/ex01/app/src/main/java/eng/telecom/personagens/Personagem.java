@@ -1,6 +1,6 @@
 package eng.telecom.personagens;
 
-public class Personagem {
+public abstract class Personagem {
     protected int vida;
     protected int ataque;
     protected double velocidade;
@@ -13,14 +13,7 @@ public class Personagem {
         this.identificacao = identificacao;
     }
 
-    public String andar() {
-        return "Estou andando!";
-    }
-
-    
-    public String atacar() {    
-        return String.format("Estou atacando com força", this.ataque); 
-    }
+    public abstract String andar(); 
 
     @Override
     public String toString() {

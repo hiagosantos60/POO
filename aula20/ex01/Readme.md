@@ -12,19 +12,37 @@ personagem
 
 ``` mermaid
 classDiagram
-    direction BT
-
-    Aldeao --|> Personagem
-    Arqueiro --|> Personagem
-    Cavaleiro --|> Personagem
+    direction LR
 
     class Personagem {
+        <<Abstract>>
         - vida: int
         - ataque: int
         - velocidade: float
         - identificacao: String
-        + andar() String
+        + andar() String*
+    }
+
+    class Coletor {
+        <<Interface>>
+        + coletarMadeira() String
+        + coletarOuro() String
+    }
+
+    class Guerreiro {
+        <<Interface>>
         + atacar() String
     }
+
+    Personagem <|-- Aldeao
+    Personagem <|-- Arqueiro
+    Personagem <|-- Cavaleiro
+
+    Aldeao ..|> Coletor
+
+    Arqueiro ..|> Guerreiro
+    Cavaleiro ..|> Guerreiro
+    Aldeao ..|> Guerreiro
+
 
 ```

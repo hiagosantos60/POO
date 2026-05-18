@@ -1,6 +1,6 @@
 package eng.telecom.personagens;
 
-public class Aldeao extends Personagem {
+public class Aldeao extends Personagem implements Guerreiro, Coletor {
 
     private final static int VIDA = 25;
     private final static int ATAQUE = 1;
@@ -18,6 +18,16 @@ public class Aldeao extends Personagem {
     @Override
     public String atacar() {
         return String.format("Aldeao: Estou atacando com uma picareta e força %d", ataque);
+    }
+
+    @Override
+    public String coletarMadeira() {
+        return "Aldeão: Estou coletando madeira";
+    }
+
+    @Override
+    public String coletarOuro() {
+        return "Aldeão: Estou coletando ouro";
     }
     
     

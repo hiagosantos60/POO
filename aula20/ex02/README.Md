@@ -14,21 +14,21 @@ classDiagram
     direction TB
 
     class FormaGeometrica{
+        <<Abstract>>
         - corDaLinha: String
-        + desenhar() String
+        + desenhar() String*
     }
 
     class FormaComArea {
+        <<Abstract>>
         - corArea: String
-        + calcularArea() String;
-        + calcularPerimetro() String;
+        + calcularArea() String*
+        + calcularPerimetro() String*
     }
 
     class Ponto {
-        - xInicial: double
-        - yInicial: double
-        - xFinal: double
-        - yFinal: double
+        - x: double
+        - y: double
     }
 
     class Linha {
