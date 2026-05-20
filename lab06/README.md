@@ -29,10 +29,10 @@ classDiagram
         # segundos: int
         # posX: int
         # posY: int
-        + avancarTempo()*
-        + desenhar(canvas: Draw)*
-        + setHorarioAtual()
-        + setHorarioManual(h: int, m: int, s: int)
+        + avancarTempo()* void
+        + desenhar(canvas: Draw)* boolean
+        + setHorarioAtual() boolean
+        + setHorarioManual(h: int, m: int, s: int) boolean
     }
 
     class RelogioDigital {
