@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation(files("libs/algs4.jar")) // adicionando biblioteca externa no projeto
+    implementation(files("libs/algs4.jar"))
 
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)

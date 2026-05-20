@@ -71,7 +71,7 @@ classDiagram
 
     class Display {
         - segmentos: boolean[7]
-        + setDigito(num: int)
+        # setDigito(num: int) void
         + desenhar(canvas: Draw, x: int, y: int, tamanho: int)
     }
 
