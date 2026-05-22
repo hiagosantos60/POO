@@ -3,11 +3,11 @@ package engetelecom.poo.relogios;
 import java.util.ArrayList;
 import edu.princeton.cs.algs4.Draw;
 
-public class RelogioDigitalDisplay extends Relogio {
+public class RelogioDigitalDisplay extends RelogioDigital {
 
-    public static final int TAM_PEQUENO = 1;
-    public static final int TAM_MEDIO = 2;
-    public static final int TAM_GRANDE = 3;
+    private static final int TAM_PEQUENO = 1;
+    private static final int TAM_MEDIO = 2;
+    private static final int TAM_GRANDE = 3;
 
     private ArrayList<Display> displays = new ArrayList<>();
     private int tamanho;
