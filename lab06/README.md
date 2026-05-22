@@ -17,9 +17,9 @@ classDiagram
 
     class Cronometro {
         <<Interface>>
-        + setModoProgressivo()
-        + setModoRegressivo(h: int, m: int, s: int)
-        + setModoRelogio()
+        + setModoProgressivo(h: int, m: int, s: int) boolean
+        + setModoRegressivo(h: int, m: int, s: int) boolean
+        + setModoRelogio() boolean
     }
 
     class Relogio {
@@ -38,41 +38,44 @@ classDiagram
     class RelogioDigital {
         <<Abstract>>
         # modo: int
+        # h_cont: int
+        # m_cont: int
+        # s_cont: int
         + static final int MODO_RELOGIO
         + static final int MODO_PROGRESSIVO
         + static final int MODO_REGRESSIVO
-        + avancarTempo()
-        + setModoProgressivo()
-        + setModoRegressivo(h: int, m: int, s: int)
-        + setModoRelogio()
+        + setModoProgressivo(h: int, m: int, s: int) boolean
+        + setModoRegressivo(h: int, m: int, s: int) boolean
+        + setModoRelogio() boolean
     }
 
     class RelogioAnalogico {
         + RelogioAnalogico(x: int, y: int)
-        + avancarTempo()
-        + desenhar(canvas: Draw)
+        + avancarTempo() void
+        + desenhar(canvas: Draw) boolean
     }
 
     class RelogioDigitalTexto {
         - tamanhoFonte: int
         + RelogioDigitalTexto(x: int, y: int, fonte: int)
-        + desenhar(canvas: Draw)
+        + desenhar(canvas: Draw) boolean
     }
 
     class RelogioDigitalDisplay {
         - tamanho: int
         - displays: Display[6]
-        + static final int TAM_PEQUENO
-        + static final int TAM_MEDIO
-        + static final int TAM_GRANDE
+        - static final int TAM_PEQUENO
+        - static final int TAM_MEDIO
+        - static final int TAM_GRANDE
         + RelogioDigitalDisplay(x: int, y: int, tamanho: int)
-        + desenhar(canvas: Draw)
+        + desenhar(canvas: Draw) boolean
     }
 
     class Display {
         - segmentos: boolean[7]
         # setDigito(num: int) void
-        + desenhar(canvas: Draw, x: int, y: int, tamanho: int)
+        + desenhar(canvas: Draw, x: int, y: int, tamanho: int) void
     }
+
 
 ```
