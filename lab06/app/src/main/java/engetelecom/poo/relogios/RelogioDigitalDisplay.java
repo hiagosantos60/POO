@@ -22,7 +22,6 @@ public class RelogioDigitalDisplay extends RelogioDigital {
             this.tamanho = TAM_MEDIO; 
         }
 
-        // Cria os 6 displays necessários (HH:MM:SS)
         for (int i = 0; i < 6; i++) {
             displays.add(new Display());
         }
@@ -37,7 +36,7 @@ public class RelogioDigitalDisplay extends RelogioDigital {
         displays.get(4).setDigito(segundos / 10);
         displays.get(5).setDigito(segundos % 10);
 
-        double fator = tamanho * 100; 
+        double fator = tamanho * 25; 
         
         double currentX = posX;
 

@@ -56,7 +56,7 @@ public class Display {
     }
 
     public void desenhar(Draw canvas, int x, int y, int tamanho) {
-        double fator = tamanho * 100.0; 
+        double fator = tamanho * 25; 
         
         Color corAcesa = Draw.GREEN; 
         
@@ -96,10 +96,8 @@ public class Display {
         double[][] todosY = { yA_pontos, yB_pontos, yC_pontos, yD_pontos, yE_pontos, yF_pontos, yG_pontos };
 
         for (int i = 0; i < 7; i++) {
-            // Se o segmento i estiver ativo (true), pinta com a cor brilhante, senão com a escura
             canvas.setPenColor(segmentos[i] ? corAcesa : corApagada);
-            
-            // Desenha o polígono correspondente ao segmento i na tela
+
             canvas.filledPolygon(todosX[i], todosY[i]);
         }
     }
