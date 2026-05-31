@@ -24,7 +24,7 @@
 
         + criarPedido(data: LocalDate, status: String) boolean  
         + removerPedido(idPedido: int)
-        
+
         + addProdutoNoPedido(idPedido: int, idProduto: int, qtd: int) boolean
         + removeProdutoNoPedido(idPedido: int, idProduto: int, qtd: int) boolean
     }
@@ -54,7 +54,7 @@
         - idPedido: int
         - situacao: String
         - data: LocalDate
-        - produtos: HashMap~Produto, Integer~
+        - produtos: HashMap~Integer, Produto~
 
         + Pedido(data: LocalDate, status: String)
         + addProduto(idProduto: int, qtd: int) boolean
