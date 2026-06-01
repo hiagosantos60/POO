@@ -1,6 +1,8 @@
 package engetelecom.poo.relogios;
 
-public abstract class RelogioDigital extends Relogio implements Cronometro {
+import java.time.LocalTime;
+
+public abstract class RelogioDigital extends Relogio {
 
     public static final int MODO_RELOGIO = 1;
     public static final int MODO_PROGRESSIVO = 2;
@@ -15,14 +17,29 @@ public abstract class RelogioDigital extends Relogio implements Cronometro {
         this.setModoRelogio();
     }
 
-    @Override
-    public boolean setModoRelogio() {
-        this.modo = MODO_RELOGIO;
-        return setHorario();
+    public boolean setModoRelogio(int h, int m, int s, int modo) {
+        if(modo==1){
+            return setHorarioManual(h, m, s);
+        } else if (modo==2) {
+            return setModoProgressivo(h, m, s);
+        } else if(modo==3) {
+            return setModoRegressivo(h, m, s);
+        } else {
+            return setModoRelogio();
+        }
     }
 
-    @Override
-    public boolean setModoProgressivo(int h, int m, int s) {
+    public boolean setModoRelogio () {
+        LocalTime l = LocalTime.now();
+        int h = l.getHour();
+        int m = l.getMinute();
+        int s = l.getSecond();
+        return setHorarioManual(h, m, s);
+    }
+
+    private boolean setModoProgressivo(int h, int m, int s) {
+        if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0) return false;
+
         this.modo = MODO_PROGRESSIVO;
         this.h_cont = h;
         this.m_cont = m;
@@ -31,13 +48,13 @@ public abstract class RelogioDigital extends Relogio implements Cronometro {
         return setHorarioManual(0, 0, 0);
     }
 
-    @Override
-    public boolean setModoRegressivo(int h, int m, int s) {
+    private boolean setModoRegressivo(int h, int m, int s) {
+        if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0) return false;
+        
         this.modo = MODO_REGRESSIVO;
         return setHorarioManual(h, m, s);
     }
 
-    @Override
     public void avancarTempo() {
         if (this.modo == MODO_REGRESSIVO) {
             if (this.horas > 0 || this.minutos > 0 || this.segundos > 0) {

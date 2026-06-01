@@ -52,7 +52,7 @@ public class App {
                         
                         for (Relogio r : listaDeRelogios) {
                             if (r instanceof RelogioDigital) {
-                                ((RelogioDigital) r).setModoProgressivo(hProg, mProg, sProg);
+                                ((RelogioDigital) r).setModoRelogio(hProg, mProg, sProg, 2);
                             }
                         }
                         System.out.println("\n[OK] Modo Progressivo iniciado com sucesso!");
@@ -65,7 +65,7 @@ public class App {
                         
                         for (Relogio r : listaDeRelogios) {
                             if (r instanceof RelogioDigital) {
-                                ((RelogioDigital) r).setModoRegressivo(hReg, mReg, sReg);
+                                ((RelogioDigital) r).setModoRelogio(hReg, mReg, sReg, 3);
                             }
                         }
                         System.out.println("\nModo Regressivo iniciado com sucesso!");

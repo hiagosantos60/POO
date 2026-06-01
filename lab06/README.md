@@ -10,17 +10,10 @@ classDiagram
 
     Relogio <|-- RelogioAnalogico
     Relogio <|-- RelogioDigital
-    Cronometro <|.. RelogioDigital
     RelogioDigital <|-- RelogioDigitalTexto
     RelogioDigital <|-- RelogioDigitalDisplay
     RelogioDigitalDisplay *-- Display
 
-    class Cronometro {
-        <<Interface>>
-        + setModoProgressivo(h: int, m: int, s: int) boolean
-        + setModoRegressivo(h: int, m: int, s: int) boolean
-        + setModoRelogio() boolean
-    }
 
     class Relogio {
         <<Abstract>>
@@ -31,34 +24,26 @@ classDiagram
         # posY: int
         + avancarTempo()* void
         + desenhar(canvas: Draw)* boolean
-        + setHorarioAtual() boolean
+        + setHorario() boolean
         + setHorarioManual(h: int, m: int, s: int) boolean
     }
 
     class RelogioDigital {
         <<Abstract>>
         # modo: int
-        # h_cont: int
-        # m_cont: int
-        # s_cont: int
         + static final int MODO_RELOGIO
         + static final int MODO_PROGRESSIVO
         + static final int MODO_REGRESSIVO
-        + setModoProgressivo(h: int, m: int, s: int) boolean
-        + setModoRegressivo(h: int, m: int, s: int) boolean
-        + setModoRelogio() boolean
+        + setModoRelogio(parametro de modo) boolean
     }
 
     class RelogioAnalogico {
         + RelogioAnalogico(x: int, y: int)
-        + avancarTempo() void
-        + desenhar(canvas: Draw) boolean
     }
 
     class RelogioDigitalTexto {
         - tamanhoFonte: int
         + RelogioDigitalTexto(x: int, y: int, fonte: int)
-        + desenhar(canvas: Draw) boolean
     }
 
     class RelogioDigitalDisplay {
@@ -68,7 +53,6 @@ classDiagram
         - static final int TAM_MEDIO
         - static final int TAM_GRANDE
         + RelogioDigitalDisplay(x: int, y: int, tamanho: int)
-        + desenhar(canvas: Draw) boolean
     }
 
     class Display {
