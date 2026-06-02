@@ -14,22 +14,23 @@ public abstract class RelogioDigital extends Relogio {
     protected int s_cont;
 
     public RelogioDigital() {
+        this.modo = MODO_RELOGIO;
         this.setModoRelogio();
     }
 
     public boolean setModoRelogio(int h, int m, int s, int modo) {
-        if(modo==1){
-            return setHorarioManual(h, m, s);
-        } else if (modo==2) {
-            return setModoProgressivo(h, m, s);
-        } else if(modo==3) {
-            return setModoRegressivo(h, m, s);
-        } else {
+        this.modo = modo;
+        if (modo == MODO_RELOGIO) {
             return setModoRelogio();
+        } else if (modo == MODO_PROGRESSIVO) {
+            return setModoProgressivo(h, m, s);
+        } else if (modo == MODO_REGRESSIVO) {
+            return setModoRegressivo(h, m, s);
         }
+        return false;
     }
 
-    public boolean setModoRelogio () {
+    public boolean setModoRelogio() {
         LocalTime l = LocalTime.now();
         int h = l.getHour();
         int m = l.getMinute();
@@ -38,7 +39,8 @@ public abstract class RelogioDigital extends Relogio {
     }
 
     private boolean setModoProgressivo(int h, int m, int s) {
-        if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0) return false;
+        if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0)
+            return false;
 
         this.modo = MODO_PROGRESSIVO;
         this.h_cont = h;
@@ -49,12 +51,14 @@ public abstract class RelogioDigital extends Relogio {
     }
 
     private boolean setModoRegressivo(int h, int m, int s) {
-        if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0) return false;
-        
+        if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0)
+            return false;
+
         this.modo = MODO_REGRESSIVO;
         return setHorarioManual(h, m, s);
     }
 
+    @Override
     public void avancarTempo() {
         if (this.modo == MODO_REGRESSIVO) {
             if (this.horas > 0 || this.minutos > 0 || this.segundos > 0) {
@@ -68,15 +72,13 @@ public abstract class RelogioDigital extends Relogio {
                     }
                 }
             }
-        } 
-        else if (this.modo == MODO_PROGRESSIVO) {
-            if (this.horas == this.h_cont && this.minutos == this.m_cont && this.segundos == this.s_cont) return;
-            super.avancarTempo(); // vai passar o tempo até chegar no que o usuário informou 
-        } 
-        else if (this.modo == MODO_RELOGIO) {
+        } else if (this.modo == MODO_PROGRESSIVO) {
+            if (this.horas == this.h_cont && this.minutos == this.m_cont && this.segundos == this.s_cont)
+                return;
             super.avancarTempo();
+        } else if (this.modo == MODO_RELOGIO) {
+            this.setHorario();
         }
     }
 
-    
 }
