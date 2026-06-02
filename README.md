@@ -24,3 +24,4 @@
 - [Aula 16](aula16) - Associação entre classes
 - [Aula 18](aula18) - Desenhos e interface gráfica
 - [Aula 20](aula20) - Java of Empires, classes Abstratas e interfaces
+- [Aula 21](aula21) - Classes Enum 
