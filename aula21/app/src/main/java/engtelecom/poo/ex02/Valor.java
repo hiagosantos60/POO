@@ -15,11 +15,11 @@ public enum Valor {
     REI(12, "Rei");
 
     public final int valor;
-    public final String tipo;
+    public final String extenso;
 
-    private Valor(int valor, String tipo) {
+    private Valor(int valor, String extenso) {
         this.valor = valor;
-        this.tipo = tipo;
+        this.extenso = extenso;
     }
 
     public static Valor getByValor(int v) {
@@ -34,6 +34,6 @@ public enum Valor {
 
     @Override
     public String toString() {
-        return tipo;
+        return extenso;
     }
 }

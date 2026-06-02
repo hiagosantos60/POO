@@ -1,6 +1,12 @@
 package engtelecom.poo;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 import engtelecom.poo.ex01.Planetas;
+import engtelecom.poo.ex02.Carta;
+import engtelecom.poo.ex02.Naipes;
+import engtelecom.poo.ex02.Valor;
 
 public class App {
     public static void main(String[] args) {
@@ -21,6 +27,18 @@ public class App {
         //     IO.println(p);
         // }
 
-        
+        Deque<Carta> baralho = new ArrayDeque<>();
+
+        for (Naipes n : Naipes.values()) {
+            for (Valor v : Valor.values()) {
+                Carta carta = new Carta(n, v);
+
+                baralho.add(carta);
+            }
+        }
+
+        for (Carta c : baralho){
+            System.out.println(c);
+        }
     }
 }
