@@ -1,5 +1,8 @@
 package engtelecom.poo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class App {
     public static void main(String[] args) {
         Caixa<String> c = new Caixa<>("Teste tipo Object");
