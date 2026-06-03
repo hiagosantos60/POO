@@ -1,11 +1,22 @@
 
 package engtelecom.poo;
 
+import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.swing.text.MaskFormatter;
+
 public class App {
-    public static void main(String[] args) {
+    static String formatar(String mascara, String valor) throws ParseException{
+        MaskFormatter maskFormatter = null;
+
+        maskFormatter = new MaskFormatter(mascara);
+        
+        return "";
+    }
+
+    static void exceptions() {
         Scanner ler = new Scanner(System.in);
         int a,b;
 
@@ -32,5 +43,9 @@ public class App {
 
         System.out.println("acabou");
         ler.close();
+    }
+
+    public static void main(String[] args) {
+        String s = formatar("(##)", "48");
     }
 }
