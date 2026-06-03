@@ -9,6 +9,7 @@ public class App {
         Draw canvas = new Draw();
         canvas.setXscale(0, 800);
         canvas.setYscale(0, 600);
+        canvas.setCanvasSize(800,600);
         canvas.enableDoubleBuffering();
 
         ArrayList<Relogio> listaDeRelogios = new ArrayList<>();
