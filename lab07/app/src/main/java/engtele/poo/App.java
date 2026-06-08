@@ -1,10 +1,15 @@
 package engtele.poo;
-
+import java.util.ArrayDeque;
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
+import engtele.poo.baralho.CartaGrafica;
+import engtele.poo.baralho.Naipes;
+import engtele.poo.baralho.Valor;
 
 public class App implements DrawListener {
     private Draw draw;
+    private ArrayDeque<CartaGrafica> baralho = new ArrayDeque<CartaGrafica>();
+
     public App(){
         this.draw = new Draw();
         this.draw.setCanvasSize(1200,600);
@@ -19,12 +24,31 @@ public class App implements DrawListener {
 
         this.draw.clear(Draw.GREEN);
         this.draw.show();
+
+        int cX = 100;
+        int cY = 300;
+
+        for (Naipes naipes : Naipes.values()) {
+            for (Valor valor : Valor.values()) {
+                CartaGrafica carta = new CartaGrafica(naipes, valor, cX, cY);
+                baralho.add(carta);
+                cX = cX + 20;
+            }
+        }
+
+        for (CartaGrafica cartaGrafica : baralho) {
+            cartaGrafica.desenhar(draw);
+        }
     }
 
     @Override
     public void mouseClicked(double x, double y) {
-        this.draw.picture(x, y, "cartas/cartas/1p.png");
-        this.draw.show();
+        for (CartaGrafica c : baralho) {
+            if(c.clicouDentro(x, y)){
+                c.virarCarta();
+                c.desenhar(draw);
+            }
+        }
     }
 
 
