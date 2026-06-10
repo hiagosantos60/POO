@@ -2,20 +2,22 @@ package engtele.poo.baralho;
 import java.util.Random;
 
 import edu.princeton.cs.algs4.Draw;
+import engtele.poo.ElementoGrafico;
 
-public class CartaGrafica extends Carta {
+public class CartaGUI extends Carta implements ElementoGrafico {
     private double cX;
     private double cY;
     private boolean virada = true;
     private String nomeCarta;
 
-    public CartaGrafica(Naipes naipe, Valor valor, double cX, double cY) {
+    public CartaGUI(Naipes naipe, Valor valor, double cX, double cY) {
         super(naipe, valor);
         this.cX = cX;
         this.cY = cY;
         this.nomeCarta = "cartas/cartas/" + valor.getInicial() + naipe.getInicial() + ".png";
     }
 
+    @Override
     public void desenhar (Draw draw) {
         if(virada) {
             draw.picture(cX,cY,nomeCarta);   
@@ -46,4 +48,5 @@ public class CartaGrafica extends Carta {
 
         return false;
     }
+
 }
