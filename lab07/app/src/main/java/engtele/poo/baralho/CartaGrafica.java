@@ -1,4 +1,6 @@
 package engtele.poo.baralho;
+import java.util.Random;
+
 import edu.princeton.cs.algs4.Draw;
 
 public class CartaGrafica extends Carta {
@@ -18,7 +20,12 @@ public class CartaGrafica extends Carta {
         if(virada) {
             draw.picture(cX,cY,nomeCarta);   
         } else {
-            draw.picture(cX,cY,"cartas/cartas/fundoa.png");
+            Random r = new Random();
+            if (r.nextBoolean()) {
+                draw.picture(cX,cY,"cartas/cartas/fundoa.png");   
+            } else {
+                draw.picture(cX,cY,"cartas/cartas/fundov.png");
+            }
         }
         draw.show();
     }
@@ -31,8 +38,8 @@ public class CartaGrafica extends Carta {
         int largura = 72;  
         int altura = 96;
 
-        if (x > this.cX - largura/2 || x < this.cX + largura/2) {
-            if (y > this.cY - altura/2 || y < this.cY + altura/2) {
+        if (x > this.cX - largura/2 && x < this.cX + largura/2) {
+            if (y > this.cY - altura/2 && y < this.cY + altura/2) {
                 return true;
             }
         }

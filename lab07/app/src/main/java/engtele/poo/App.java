@@ -49,6 +49,7 @@ public class App implements DrawListener {
                 c.desenhar(draw);
             }
         }
+        draw.show();
     }
 
 
